@@ -1,0 +1,135 @@
+public class MyClass {
+    public static void main(String args[]) {
+        
+        Wizard wiz = new Wizard_1lvl();
+        wiz.setMagic(new AirMagic());
+        wiz.fight();
+        System.out.println("***********************************\n");
+        
+        wiz = new Wizard_5lvl();
+        wiz.setMagic(new EarthMagic());
+        wiz.fight();
+        System.out.println("***********************************\n");
+        
+        wiz = new Wizard_10lvl();
+        wiz.setMagic(new WaterMagic());
+        wiz.fight();
+        System.out.println("***********************************\n");
+        
+        wiz = new Wizard_20lvl();
+        wiz.setMagic(new FireMagic());
+        wiz.fight();
+        System.out.println("***********************************\n");
+        
+      
+    }
+}
+
+interface MagicBehavior {
+    
+   public void useMagicBall();
+   public void useMagicShield();
+   
+}
+
+class FireMagic implements MagicBehavior{
+    
+    public void useMagicBall() {
+        System.out.println("FIRE BALL 20 lvl.\n");
+        
+    }
+    
+    public void useMagicShield() {
+        System.out.println("FIRE SHIELD 20 lvl.\n");
+    }
+   
+}
+
+class WaterMagic implements MagicBehavior{
+    
+   public void useMagicBall() {
+        System.out.println("WATER BALL 10 lvl.\n");
+        
+    }
+    
+    public void useMagicShield() {
+        System.out.println("WATER SHIELD 10 lvl.\n");
+    }
+   
+}
+
+class EarthMagic implements MagicBehavior{
+    
+   public void useMagicBall() {
+        System.out.println("EARTH BALL 5 lvl.\n");
+        
+    }
+    
+    public void useMagicShield() {
+        System.out.println("EARTH SHIELD 5 lvl.\n");
+    }
+   
+}
+
+class AirMagic implements MagicBehavior{
+    
+   public void useMagicBall() {
+        System.out.println("AIR BALL 1 lvl.\n");
+        
+    }
+    
+    public void useMagicShield() {
+        System.out.println("AIR SHIELD 1 lvl.\n");
+    }
+   
+}
+
+abstract class Wizard{
+    
+    MagicBehavior magic;
+    
+    void setMagic(MagicBehavior m){
+        this.magic = m;
+    }
+    
+    abstract void fight();
+}
+
+class Wizard_1lvl extends Wizard{
+    
+    void fight(){
+        System.out.println("Wizard(1 lvl) used magic!\n");
+        magic.useMagicBall();
+        magic.useMagicShield();
+    }
+    
+}
+
+class Wizard_5lvl extends Wizard{
+    
+    void fight(){
+        System.out.println("Wizard(5 lvl) used magic!\n");
+        magic.useMagicBall();
+        magic.useMagicShield();
+    }
+    
+}
+class Wizard_10lvl extends Wizard{
+    
+    public void fight(){
+        System.out.println("Wizard(10 lvl) used magic!\n");
+        magic.useMagicBall();
+        magic.useMagicShield();
+    }
+    
+}
+
+class Wizard_20lvl extends Wizard{
+    
+    void fight(){
+        System.out.println("Wizard(20 lvl) used magic!\n");
+        magic.useMagicBall();
+        magic.useMagicShield();
+    }
+    
+}
